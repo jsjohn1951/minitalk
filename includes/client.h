@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:18:23 by wismith           #+#    #+#             */
-/*   Updated: 2022/03/22 18:06:42 by wismith          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:27:04 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	arg_check(int argc, char *s);
 void	err_msg(char *s);
 int		ft_atoi(const char *nptr);
 void	pid_check(int pid);
+int		ft_strlen_mod(char *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wismith <wismith@42ABUDHABI.AE>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:40:47 by wismith           #+#    #+#             */
-/*   Updated: 2022/03/22 17:42:16 by wismith          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:35:20 by wismith          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	err_giv_info(void)
 	ft_printf("\nFormat as follows:\n\n");
 	ft_printf("\t$ %s./client%s  '%spID%s", KGRN, KNRM, KMAG, KNRM);
 	ft_printf(" (%snumerical only%s)'", KRED, KNRM);
-	ft_printf("  '%smessage%s'\n\n", KYEL, KNRM);
+	ft_printf("  '%smessage%s'\n", KYEL, KNRM);
+	ft_printf("\n\tEnsure that %spID%s ", KMAG, KNRM);
+	ft_printf("argument isn't %sempty%s\n\n", KRED, KNRM);
 }
 
 void	char_check(char *s)
@@ -51,12 +53,17 @@ void	char_check(char *s)
 	check = 0;
 	if (s[i] == '-')
 		i++;
-	while (s[i])
+	if (ft_strlen(s))
 	{
-		if (s[i] < '0' || s[i] > '9')
-			check = -1;
-		i++;
+		while (s[i])
+		{
+			if (s[i] < '0' || s[i] > '9')
+				check = -1;
+			i++;
+		}
 	}
+	else
+		check = -1;
 	if (check == -1)
 	{
 		err_msg("Error!\n");
